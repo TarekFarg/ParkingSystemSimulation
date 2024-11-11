@@ -14,6 +14,9 @@ public class ParkingSpot {
         return spots.tryAcquire();
     }
 
+    public void acquire() throws InterruptedException {
+        this.spots.acquire();
+    }
     public void leave(){
         spots.release();
     }

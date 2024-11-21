@@ -31,7 +31,7 @@ public class Main {
                         duration = Integer.parseInt(temp[1]);
                 }
                 Car c = new Car(carNum,arriveAt,duration,gate,spots) ;
-                c.run();
+                c.start();
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -6,13 +6,14 @@ public class Car extends Thread {
     private ParkingSpot spotManager; // Reference to the Spot class for managing parking spots
     private int arriveAT ;
     // Constructor
-    public Car(int id,int arriveAT, int parkingDuration, Gate gate, ParkingSpot spotManager) {
+    public Car(int id,int arriveAT, int parkingDuration, Gate gate , ParkingSpot spotManager) {
         this.id = id;
         this.arriveAT = arriveAT ;
         this.parkingDuration = parkingDuration;
         this.gate = gate;
         this.spotManager = spotManager;
     }
+
 
     // Main thread method
     @Override

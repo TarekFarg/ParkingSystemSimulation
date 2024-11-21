@@ -4,10 +4,11 @@ public class Car extends Thread {
     private int parkingDuration; // Duration the car stays parked (in milliseconds)
     private Gate gate; // The gate the car uses to enter the parking lot
     private ParkingSpot spotManager; // Reference to the Spot class for managing parking spots
-
+    private int arriveAT ;
     // Constructor
-    public Car(int id, int parkingDuration, Gate gate, Spot spotManager) {
+    public Car(int id,int arriveAT, int parkingDuration, Gate gate, ParkingSpot spotManager) {
         this.id = id;
+        this.arriveAT = arriveAT ;
         this.parkingDuration = parkingDuration;
         this.gate = gate;
         this.spotManager = spotManager;
@@ -25,12 +26,29 @@ public class Car extends Thread {
         }
     }
 
+    // get id
+    public int getID()
+    {
+        return id ;
+    }
+    //get gateId
+    public int getGate()
+    {
+        return gate.getId() ;
+    }
+    // get arriveAt
+    public int getArriveAT()
+    {
+        return arriveAT;
+    }
+
     // Method to park the car
     private void park() {
-        System.out.println("Car " + id + " is trying to park through Gate " + gate.getGateId());
+        gate.letCarIn(this);
         boolean parked = spotManager.tryToPark(); // Attempt to acquire a spot
         if (parked) {
-            System.out.println("Car " + id + " has parked.");
+            System.out.println("Car " + id + " from Gate " + gate.getId() + " parked");
+            System.out.println("(Parking Status: " + (4-spotManager.availableSpots()) + " spots occupied)");
         } else {
             System.out.println("Car " + id + " couldn't park as no spots are available.");
         }
@@ -38,7 +56,7 @@ public class Car extends Thread {
 
     // Method to release the parking spot
     private void exit() {
-        System.out.println("Car " + id + " is leaving.");
+        gate.letCarOut(this);
         spotManager.leave(); // Release the spot
     }
 }

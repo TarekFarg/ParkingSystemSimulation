@@ -46,6 +46,7 @@ public class Main {
         System.out.println("------------------------");
         int totalCarsServed = gate1.getServed() + gate2.getServed() + gate3.getServed();
         System.out.println("Total cars served: " + totalCarsServed);
+        System.out.println("Current Cars in Parking: " + (4 - parkingSpots.availableSpots()));
         System.out.println("Details:");
         for(int i = 0; i < gates.size(); i++){
             System.out.println("    Gate " + (i+1) + " served " + gates.get(i).getServed() + " cars." );

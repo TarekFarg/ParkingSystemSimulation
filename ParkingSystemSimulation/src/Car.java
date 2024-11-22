@@ -51,13 +51,13 @@ public class Car extends Thread {
             long waitEndTime = System.currentTimeMillis();
             System.out.println("Car " + id + " from Gate " + gate.getId() +
                     " parked immediately (Parking Status: " + (4 - spotManager.availableSpots()) +
-                    " spots occupied, Wait Time: " + (waitEndTime - waitStartTime) + " ms)");
+                    " spots occupied, Wait Time: " + ((waitEndTime - waitStartTime) / 1000) + "s)");
         } else {
             System.out.println("Car " + id + " from Gate " + gate.getId() + " is waiting to park.");
             spotManager.waitToPark(); // Block until a spot is available
             long waitEndTime = System.currentTimeMillis();
             System.out.println("Car " + id + " from Gate " + gate.getId() + " parked after waiting " +
-                    (waitEndTime - waitStartTime) + " ms (Parking Status: " +
+                    ((waitEndTime - waitStartTime) / 1000) + "s (Parking Status: " +
                     (4 - spotManager.availableSpots()) + " spots occupied)");
         }
     }

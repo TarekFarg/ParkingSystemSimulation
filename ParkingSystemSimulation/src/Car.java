@@ -46,16 +46,12 @@ public class Car extends Thread {
         return parkingDuration;
     }
     // Method to park the car
-    private void park() {
+    private void park() throws InterruptedException {
         gate.letCarIn(this);
-        boolean parked = spotManager.tryToPark(); // Attempt to acquire a spot
-        if (parked) {
-            System.out.println("Car " + id + " from Gate " + gate.getId() + " parked " +
-                    "(Parking Status: " + (4-spotManager.availableSpots()) + " spots occupied)");
-        }
-        else {
-            System.out.println("Car " + id + " couldn't park as no spots are available.");
-        }
+        System.out.println("Car " + id + " from Gate " + gate.getId() + " is waiting to park.");
+        spotManager.park(); // Block until a spot is available
+        System.out.println("Car " + id + " from Gate " + gate.getId() + " parked " +
+                "(Parking Status: " + (4 - spotManager.availableSpots()) + " spots occupied)");
     }
 
     // Method to release the parking spot

@@ -10,8 +10,8 @@ public class ParkingSpot {
         this.spots = new Semaphore(spots, true);
     }
 
-    public boolean tryToPark(){
-        return spots.tryAcquire();
+    public void park() throws InterruptedException {
+        spots.acquire();
     }
 
     public void leave(){

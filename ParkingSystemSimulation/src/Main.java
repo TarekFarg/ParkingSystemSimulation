@@ -17,7 +17,7 @@ public class Main {
         gates.add(gate2);
         gates.add(gate3);
 
-        String filePath = "src\\cars.txt";
+        String filePath = "parkingSystemSimulation\\src\\cars.txt";
 
         List<Car> carThreads = new ArrayList<>();
 

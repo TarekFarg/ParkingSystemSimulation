@@ -19,6 +19,9 @@ public class Car extends Thread {
     @Override
     public void run() {
         try {
+            // Simulate arrival time
+            Thread.sleep(arriveAT * 1000);
+
             park(); // Attempt to park the car
             Thread.sleep(parkingDuration); // Simulate the car staying parked
             exit(); // Release the parking spot after parking
@@ -26,6 +29,7 @@ public class Car extends Thread {
             System.out.println("Car " + id + " was interrupted.");
         }
     }
+
 
     // get id
     public int getID()

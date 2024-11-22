@@ -1,8 +1,20 @@
 public class Gate {
     int id ;
+    int servedCars;
+
+    public Gate(int id){
+        this.id = id;
+    }
     public int getId()
     {
         return id;
+    }
+
+    public void incrementServed(){
+        this.servedCars++;
+    }
+    public int getServed(){
+        return this.servedCars;
     }
     public void letCarIn(Car c)
     {
@@ -10,6 +22,6 @@ public class Gate {
     }
     public void letCarOut(Car c)
     {
-        System.out.println("Car " + c.getID() + " from Gate " + c.getID() + " left after .?????");
+        System.out.println("Car " + c.getID() + " from Gate " + c.getID() + " left after " + c.getParkDuration() + ".");
     }
 }

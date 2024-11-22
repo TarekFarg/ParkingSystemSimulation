@@ -17,9 +17,8 @@ public class Car extends Thread {
     @Override
     public void run() {
         try {
-            Thread.sleep(arriveAT * 1000);
             park();
-            Thread.sleep(parkingDuration);
+            Thread.sleep(parkingDuration * 1000L);
             exit();
         } catch (InterruptedException e) {
             System.out.println("Car " + id + " was interrupted.");

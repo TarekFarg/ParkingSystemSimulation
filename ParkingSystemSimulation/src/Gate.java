@@ -18,10 +18,10 @@ public class Gate {
     }
     public void letCarIn(Car c)
     {
-        System.out.println("Car " + c.getID() + " from Gate " + c.getID() + " arrived at time "+ c.getArriveAT());
+        System.out.println("Car " + c.getID() + " from Gate " + this.getId() + " arrived at time " + c.getArriveAT() + "s.");
     }
     public void letCarOut(Car c)
     {
-        System.out.println("Car " + c.getID() + " from Gate " + c.getID() + " left after " + c.getParkDuration() + ".");
+        System.out.println("Car " + c.getID() + " from Gate " + this.getId() + " left after " + c.getParkDuration() + "s.");
     }
 }

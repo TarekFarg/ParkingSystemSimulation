@@ -17,6 +17,7 @@ public class Car extends Thread {
     @Override
     public void run() {
         try {
+            Thread.sleep(arriveAT * 1000);
             park();
             Thread.sleep(parkingDuration);
             exit();

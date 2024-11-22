@@ -48,7 +48,7 @@ public class Main {
         System.out.println("Total cars served: " + totalCarsServed);
         System.out.println("Details:");
         for(int i = 0; i < gates.size(); i++){
-            System.out.println("    Gate " + (i+1) + " served " + gates.get(i) + " cars." );
+            System.out.println("    Gate " + (i+1) + " served " + gates.get(i).getServed() + " cars." );
         }
     }
     private static Car parseCarDetails(String line, ParkingSpot parkingSpots, List<Gate> gates) {

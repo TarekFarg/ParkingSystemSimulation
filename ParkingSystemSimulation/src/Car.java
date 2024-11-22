@@ -42,7 +42,9 @@ public class Car extends Thread {
     {
         return arriveAT;
     }
-
+    public int getParkDuration() {
+        return parkingDuration;
+    }
     // Method to park the car
     private void park() {
         gate.letCarIn(this);

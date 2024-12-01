@@ -1,13 +1,13 @@
-import java.util.concurrent.Semaphore;
+//import java.util.concurrent.Semaphore;
 
 public class ParkingSpot {
     private Semaphore spots;
 
     public ParkingSpot(){
-        this.spots = new Semaphore(4, true); // Default value in assignment as well
+        this.spots = new Semaphore(4 ); // Default value in assignment as well
     }
     public ParkingSpot(int spots){
-        this.spots = new Semaphore(spots, true);
+        this.spots = new Semaphore(spots );
     }
 
     public boolean tryToPark(){
